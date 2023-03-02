@@ -33,7 +33,7 @@ export async function createDoctorHandler(req: Request, res: Response, next: Nex
   };
 
   try {
-    const user = await createUser(newUser as DocumentDefinition<Omit<UserDocument, 'createdAt' | 'updatedAt'>>);
+    const user = await createUser(newUser as DocumentDefinition<Omit<UserDocument, 'createdAt' | 'updatedAt'>>) as UserDocument;
     // eslint-disable-next-line no-underscore-dangle
     const doctor = await createDoctor({ birthDate: data.birthDate, userId: user._id });
 
@@ -43,7 +43,10 @@ export async function createDoctorHandler(req: Request, res: Response, next: Nex
       from: 'julgomez14@mail.com',
       subject: 'confirm your email',
       text: 'Hello,',
-      html: '<p>to continue please confirm your email</p>',
+      html: `
+      <h2>Confirm account</h2>
+      ${process.env.BASE_URL}/auth/local/activate/${user.passwordResetToken}
+      `,
     };
     await sendMailSendGrid(message);
     return res.status(201).json(doctor);

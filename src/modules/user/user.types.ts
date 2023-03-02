@@ -3,6 +3,6 @@ export type userProfileType = {
   identification: string;
   email: string;
   role: string;
-  birthDate?: string;
+  birthDate?: Date;
   userId?: string;
 }

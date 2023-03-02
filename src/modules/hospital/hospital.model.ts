@@ -4,9 +4,9 @@ export interface HospitalDocument extends Document {
   name: string;
   services: string[];
   userId: string;
+  doctors: string[];
   createdAt: Date;
   updatedAt: Date;
-
 }
 
 const HospitalSchema = new Schema({
@@ -23,6 +23,10 @@ const HospitalSchema = new Schema({
     ref: 'User',
     required: true,
   },
+  doctors: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Doctor',
+  }],
 }, {
   timestamps: true,
   versionKey: false,

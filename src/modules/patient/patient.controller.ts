@@ -23,7 +23,7 @@ export async function createPatientHandler(req: Request, res: Response, next: Ne
   const data = req.body;
   const newUser = {
     name: data.name,
-    dateBirday: data.dateBirday,
+    birthDate: data.birthDate,
     email: data.email,
     password: data.password,
     role: 'PATIENT',

@@ -13,8 +13,20 @@ export async function createAppointment(
 export async function getAppointmentByID(id: string) {
   try {
     return await Appointment.findById(id)
-      .populate({ path: 'idPatient', select: 'name' })
-      .populate({ path: 'idDoctor', select: 'name' });
+      .populate({
+        path: 'idPatient',
+        populate: {
+          path: 'userId',
+          select: 'name email',
+        },
+      })
+      .populate({
+        path: 'idDoctor',
+        populate: {
+          path: 'userId',
+          select: 'name email',
+        },
+      });
   } catch (error: any) {
     throw new Error(error);
   }
@@ -23,8 +35,20 @@ export async function getAppointmentByID(id: string) {
 export async function getAppointmentByPatient(id: string) {
   try {
     return await Appointment.find({ idPatient: id })
-      .populate('idPatient')
-      .populate('idDoctor');
+      .populate({
+        path: 'idPatient',
+        populate: {
+          path: 'userId',
+          select: 'name email',
+        },
+      })
+      .populate({
+        path: 'idDoctor',
+        populate: {
+          path: 'userId',
+          select: 'name email',
+        },
+      });
   } catch (error: any) {
     throw new Error(error);
   }
@@ -33,8 +57,20 @@ export async function getAppointmentByPatient(id: string) {
 export async function getAppointmentByDoctor(id: string) {
   try {
     return await Appointment.find({ idDoctor: id })
-      .populate('idPatient')
-      .populate('idDoctor');
+      .populate({
+        path: 'idPatient',
+        populate: {
+          path: 'userId',
+          select: 'name email',
+        },
+      })
+      .populate({
+        path: 'idDoctor',
+        populate: {
+          path: 'userId',
+          select: 'name email',
+        },
+      });
   } catch (error: any) {
     throw new Error(error);
   }

@@ -1,4 +1,4 @@
-# Node.js Template - Make It Real 💻
+# API Heippi💻
 
 Codebase for the node.js projects.
 
@@ -32,8 +32,8 @@ The use of endpoints is very simple, previously you could see a table of endpoin
 Request Body:
 ```json
 {
-  "email": "cristian.moreno@makeitreal.camp",
-  "password": "123456"
+  "email": "bud_von@yahoo.com",
+  "password": "mem_JlIDm50g48b"
 }
 ```
 
@@ -42,11 +42,10 @@ Response:
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNyaXN0aWFuLm1vcmVub0BtYWtlaXRyZWFsLmNhbXAiLCJpYXQiOjE2NjEyMDgwODJ9.kPdMoVUEnyX36vi606Mc1C66yWLKKAB37GLbF0gzhBo",
   "profile": {
-    "firstName": "cristian",
-    "lastName": "moreno",
-    "email": "cristian.moreno@makeitreal.camp",
-    "avatar": "https://image.com/264.jpg",
-    "role": "ADMIN"
+    "name": "cristian",
+    "identification": "123423",
+    "email": "bud_von@yahoo.com",
+    "role": "PATIENT"
   }
 }
 ```
@@ -55,11 +54,10 @@ Response:
 Request Body:
 ```json
 {
-  "firstName": "cristian",
-  "lastName": "moreno",
-  "email": "cristian.moreno@makeitreal.camp",
-  "password": "123456",
-  "avatar": "https://image.com/264.jpg",
+  "name": "cristian",
+  "identification": "123423",
+  "email": "bud_von@yahoo.com",
+  "password": "mem_JlIDm50g48b",
 }
 ```
 
@@ -68,8 +66,8 @@ Response:
 ```json
 {
   "name": "cristian moreno",
-  "email": "cristian.moreno@makeitreal.camp",
-  "role": "USER",
+  "email": "bud_von@yahoo.com",
+  "role": "PATIENT",
 }
 ```
 

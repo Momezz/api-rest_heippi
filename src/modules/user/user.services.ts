@@ -1,4 +1,5 @@
 import { DocumentDefinition, FilterQuery } from 'mongoose';
+import crypto from 'crypto';
 
 import User, { UserDocument } from './user.model';
 
@@ -7,7 +8,13 @@ export async function createUser(
     Omit<UserDocument, 'createdAt' | 'updatedAt'>
   >,
 ) {
-  return User.create(input);
+  const hash = crypto.createHash('sha256').update(input.email).digest('hex');
+  const newUser = {
+    ...input,
+    passwordResetToken: hash,
+    passwordResetExpires: Date.now() + 3_600_000 * 48,
+  };
+  return User.create(newUser);
 }
 
 export async function getUserByID(id: string) {
