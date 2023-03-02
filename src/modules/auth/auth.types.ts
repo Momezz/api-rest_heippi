@@ -6,6 +6,6 @@ export interface AuthRequest extends Request {
   user?: UserDocument;
 }
 
-export type Role = 'ADMIN' | 'INSTRUCTOR' | 'MAKER';
+export type Role = 'HOSPITAL' | 'PATIENT' | 'DOCTOR';
 
 export type Roles = Role[];
