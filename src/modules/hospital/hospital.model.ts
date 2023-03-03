@@ -4,7 +4,7 @@ export interface HospitalDocument extends Document {
   name: string;
   services: string[];
   userId: string;
-  doctors: string[];
+  doctors?: string[];
   createdAt: Date;
   updatedAt: Date;
 }

@@ -23,13 +23,14 @@ export async function createPatientHandler(req: Request, res: Response, next: Ne
   const data = req.body;
   const newUser = {
     name: data.name,
-    birthDate: data.birthDate,
+    identification: data.identification,
     email: data.email,
     password: data.password,
+    phone: data.phone,
     role: 'PATIENT',
   };
   try {
-    const user = await createUser(newUser as unknown as DocumentDefinition<Omit<UserDocument, 'createdAt' | 'updatedAt'>>);
+    const user = await createUser(newUser as DocumentDefinition<Omit<UserDocument, 'createdAt' | 'updatedAt'>>);
     // eslint-disable-next-line no-underscore-dangle
     const patient = await createPatient({ birthDate: data.birthDate, userId: user._id });
     return res.status(201).json(patient);

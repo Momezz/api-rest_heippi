@@ -5,7 +5,6 @@ Codebase for the node.js projects.
 - Built with Node.js and Express
 - Typescript
 - Mongoose ODM
-- REST API & GraphQL
 
 ## Prerequisites
 
@@ -42,7 +41,7 @@ Response:
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImNyaXN0aWFuLm1vcmVub0BtYWtlaXRyZWFsLmNhbXAiLCJpYXQiOjE2NjEyMDgwODJ9.kPdMoVUEnyX36vi606Mc1C66yWLKKAB37GLbF0gzhBo",
   "profile": {
-    "name": "cristian",
+    "name": "julian",
     "identification": "123423",
     "email": "bud_von@yahoo.com",
     "role": "PATIENT"
@@ -54,7 +53,7 @@ Response:
 Request Body:
 ```json
 {
-  "name": "cristian",
+  "name": "julian",
   "identification": "123423",
   "email": "bud_von@yahoo.com",
   "password": "mem_JlIDm50g48b",
@@ -65,7 +64,7 @@ Response:
 
 ```json
 {
-  "name": "cristian moreno",
+  "name": "julian",
   "email": "bud_von@yahoo.com",
   "role": "PATIENT",
 }
